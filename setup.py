@@ -42,7 +42,9 @@ setup(
     license="MIT",
     packages=get_packages("nuts_custom_class"),
     install_requires=[
-        "nuts @ git+https://github.com/INSRapperswil/nuts.git"
+        "nuts @ git+https://github.com/INSRapperswil/nuts.git",
+        "pyats",
+        "genie"
     ],
     python_requires=">=3.6,<3.9",
 )
