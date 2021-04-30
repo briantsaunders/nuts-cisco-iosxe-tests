@@ -35,7 +35,7 @@ CONTEXT = NtpStatusContext
 
 
 @pytest.mark.usefixtures("check_nuts_result")
-class TestNetmikoNtpStatus:
+class TestNtpStatus:
 
     @pytest.mark.nuts("host,ntp_status")
     def test_ntp_status(self, single_result, ntp_status):

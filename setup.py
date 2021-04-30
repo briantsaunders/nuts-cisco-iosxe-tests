@@ -26,25 +26,24 @@ def find_version(*file_paths):
 with open("README.md", "r", encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 
+with open("requirements.txt", "r") as f:
+    INSTALL_REQUIRES = f.read().splitlines()
+
 def get_packages(package):
     """Return root package and all sub-packages"""
     return [str(path.parent) for path in Path(package).glob("**/__init__.py")]
 
 setup(
-    name="nuts-custom-class",
-    version=find_version("nuts_custom_class", "__init__.py"),
+    name="nuts-cisco-iosxe-tests",
+    version=find_version("nuts_cisco_iosxe_tests", "__init__.py"),
     author="Brian Saunders",
     author_email="brian.t.saunders@gmail.com",
-    description="nuts custom class test library",
+    description="nuts custom class test library cisco iosxe devices",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     url="https://github.com/briantsaunders/nuts-custom-class-test",
     license="MIT",
-    packages=get_packages("nuts_custom_class"),
-    install_requires=[
-        "nuts @ git+https://github.com/INSRapperswil/nuts.git",
-        "pyats",
-        "genie"
-    ],
+    packages=get_packages("nuts_cisco_iosxe_tests"),
+    install_requires=INSTALL_REQUIRES,
     python_requires=">=3.6,<3.9",
 )
